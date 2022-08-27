@@ -34,7 +34,7 @@ const schema = new mongoose.Schema({
     unique: true,
     // 驗證
     validator: {
-      validator (email) {
+      validator(email) {
         return validator.isEmail(email)
       },
       message: '信箱格式錯誤'
@@ -58,7 +58,7 @@ const schema = new mongoose.Schema({
     type: String,
     required: [true, '手機欄位未填寫'],
     validator: {
-      validator (phone) {
+      validator(phone) {
         return validator.isMobilePhone(phone, 'zh-TW')
       },
       message: '手機格式錯誤'
@@ -69,7 +69,7 @@ const schema = new mongoose.Schema({
     type: String,
     required: [true, '身分證欄位未填寫'],
     validator: {
-      validator (identification) {
+      validator(identification) {
         return validator.isIdentityCard(identification, 'zh-TW')
       },
       message: '身分證格式錯誤'
@@ -84,7 +84,7 @@ const schema = new mongoose.Schema({
     type: String,
     required: [true, '緊急聯絡人電話欄位未填寫'],
     validator: {
-      validator (phone) {
+      validator(phone) {
         return validator.isMobilePhone(phone, 'zh-TW')
       },
       message: '手機格式錯誤'
@@ -151,6 +151,11 @@ const schema = new mongoose.Schema({
   atmcheckDay: {
     type: String
     // required: [true, '帳戶後五碼']
+  },
+  // 下訂單自動產生的日期
+  date: {
+    type: Date,
+    default: Date.now()
   }
 }, { versionKey: false }) // 移除 versionKey、__V
 

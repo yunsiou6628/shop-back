@@ -3,6 +3,7 @@ import orders from '../models/orders.js'
 
 export const createOrder = async (req, res) => {
   try {
+    console.log(req.body)
     if (req.user.cart.length === 0) {
       return res.status(400).send({ success: false, message: '購物車為空' })
     }
@@ -49,6 +50,7 @@ export const createOrder = async (req, res) => {
     await req.user.save()
     res.status(200).send({ success: true, message: '', result: result._id })
   } catch (error) {
+    console.log('進500錯誤')
     res.status(500).send({ success: false, message: '伺服器錯誤' })
   }
 }

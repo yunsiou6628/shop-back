@@ -89,7 +89,7 @@ export const getProduct = async (req, res) => {
     res.status(200).send({ success: true, message: '', result: { ...result, category: result2 } })
     // category: result2 資料欄位放到 => product.category = data.result.category
   } catch (error) {
-    console.log(error)
+    // console.log(error)
     res.status(500).send({ success: false, message: '伺服器錯誤' })
   }
 }
