@@ -1,4 +1,4 @@
-// middleware - admin.js 管理員?
+// middleware - admin.js 管理員
 // (req, res, next) 三個代表寫 middleware ，四個 多 error 的是錯誤處理
 export default (req, res, next) => {
   // console.log(req)
