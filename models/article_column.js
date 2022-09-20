@@ -4,8 +4,7 @@ import mongoose from 'mongoose'
 
 const schema = new mongoose.Schema({
   name: {
-    type: String,
-    required: [true, '文章標題未填寫']
+    type: String
   },
   image: {
     type: String

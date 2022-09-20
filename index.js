@@ -9,6 +9,7 @@ import userRoute from './routes/user.js'
 import productsRoute from './routes/products.js'
 import categoryRoute from './routes/products_category.js'
 import ordersRoute from './routes/orders.js'
+import articleRoute from './routes/article_column.js'
 
 mongoose.connect(process.env.DB_URL) // 連接資料庫(.env)
 
@@ -16,7 +17,7 @@ const app = express()
 
 // cors 限制前台連到後台的網址，限制 github 跟 localhost 可以傳入
 app.use(cors({
-  origin (origin, callback) {
+  origin(origin, callback) {
     if (origin === undefined || origin.includes('github') || origin.includes('localhost')) {
       callback(null, true)
     } else {
@@ -39,6 +40,7 @@ app.use('/users', userRoute)
 app.use('/products', productsRoute)
 app.use('/products_category', categoryRoute)
 app.use('/orders', ordersRoute)
+app.use('/article_column', articleRoute)
 
 app.all('*', (req, res) => {
   res.status(404).send({ success: false, message: '找不到' })
